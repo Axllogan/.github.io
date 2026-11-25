@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiago Sampaio | Cientista de Dados</title>
+    <style>
+        /* Reset e Variáveis */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #10b981;
+            --card-bg: #1e293b;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navegação */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background-color: rgba(15, 23, 42, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        header {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5%;
+        }
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        header h1 span {
+            color: var(--accent-color);
+        }
+        header h2 {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        header p {
+            max-width: 600px;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        /* Seções Gerais */
+        section {
+            padding: 5rem 5%;
+        }
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Sobre Mim */
+        .sobre-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        .sobre-texto p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* Habilidades */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .skill-card {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+        .skill-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Projetos */
+        .projetos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .projeto-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .projeto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .projeto-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .tags span {
+            background-color: #334155;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: var(--text-color);
+        }
+        .projeto-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .link-github {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .link-github:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 5%;
+            background-color: var(--card-bg);
+            color: var(--text-muted);
+        }
+        footer .social-links {
+            margin-bottom: 1rem;
+        }
+        footer .social-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Simplificação para mobile */
+            .sobre-content { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegação -->
+    <nav>
+        <div class="logo">TS.</div>
+        <ul>
+            <li><a href="#sobre">Sobre Mim</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <h2>Olá, eu sou</h2>
+        <h1>Thiago Sampaio <span>Ferreira Ramos</span></h1>
+        <h2>Cientista de Dados em Transição de Carreira</h2>
+        <p>Transformando dados complexos em decisões estratégicas de negócio. Unindo a precisão estrutural da engenharia à empatia analítica do atendimento ao cliente.</p>
+        <div>
+            <a href="#projetos" class="btn">Ver Projetos</a>
+            <a href="https://github.com/Axllogan" target="_blank" class="btn" style="background-color: transparent; border: 2px solid var(--accent-color); color: var(--accent-color); margin-left: 1rem;">GitHub</a>
+        </div>
+    </header>
+
+    <!-- Sobre Mim -->
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <div class="sobre-content">
+            <div class="sobre-texto">
+                <p>Minha trajetória começou na engenharia, modelando projetos em 3D, onde aprendi que precisão e estrutura são fundamentais. A virada de chave veio ao atuar no atendimento ao cliente de uma grande empresa do setor de apostas, onde catalogar feedbacks e prevenir problemas me mostrou o poder dos dados para resolver dores reais.</p>
+                <p>Hoje, dedico-me integralmente à Ciência de Dados. Busco minha consolidação profissional aplicando modelos preditivos e análises que geram valor tangível aos negócios. Meu grande diferencial é unir o raciocínio lógico de engenheiro com a escuta ativa de quem já lidou com milhares de usuários, sempre com resiliência e adaptabilidade para enfrentar desafios.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades">
+        <h2>Habilidades Técnicas</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Linguagens e Bancos</h3>
+                <p>Python (Pandas, Numpy, Scikit-learn), SQL (PostgreSQL - Básico)</p>
+            </div>
+            <div class="skill-card">
+                <h3>Machine Learning</h3>
+                <p>Modelos de Classificação, Regressão, Clusterização (K-means), Sistemas de Recomendação, Métricas de Avaliação.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Visualização e Deploy</h3>
+                <p>Matplotlib, Seaborn, Streamlit, Power BI.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Ferramentas</h3>
+                <p>Git/GitHub, Jupyter Notebook, Excel Avançado, AutoCAD 2D/3D.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos">
+        <h2>Projetos em Destaque</h2>
+        <div class="projetos-grid">
+            
+            <!-- Projeto 1 -->
+            <div class="projeto-card">
+                <h3>Credit Score com Árvore de Decisão</h3>
+                <div class="tags"><span>Python</span><span>Scikit-learn</span><span>ML</span></div>
+                <p><strong>Desafio:</strong> Classificar o score de crédito de clientes (High, Average, Low).<br><br>
+                <strong>Solução:</strong> Apliquei Decision Tree (Critério Gini) e OrdinalEncoder para dados categóricos. Avaliei com Matriz de Confusão e classification_report.<br><br>
+                <strong>Resultado:</strong> Acurácia superior a 93% na base de teste, com diagnóstico de overfitting inicial a ser corrigido com poda (hiperparâmetros).</p>
+                <a href="https://github.com/Axllogan" target="_blank" class="link-github">Ver no GitHub &rarr;</a>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="projeto-card">
+                <h3>Abandono de Carrinho (E-commerce)</h3>
+                <div class="tags"><span>Python</span><span>Classificação</span><span>Negócios</span></div>
+                <p><strong>Desafio:</strong> Identificar clientes com alta probabilidade de desistir da compra devido ao aumento de 127% no frete.<br><br>
+                <strong>Solução:</strong> Estudo de classificação binária (Desistentes vs Persistentes) focado na precisão da classe minoritária.<br><br>
+                <strong>Resultado:</strong> Modelo com 90% de acerto geral e 85% de precisão para "Desistentes", permitindo envio cirúrgico de cupons de desconto e aumento da fidelização.</p>
+                <a href="https://github.com/Axllogan" target="_blank" class="link-github">Ver no GitHub &rarr;</a>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div class="projeto-card">
+                <h3>Classificação de Hipotireoidismo (TCC)</h3>
+                <div class="tags"><span>Python</span><span>Data Science</span><span>Saúde</span></div>
+                <p><strong>Desafio:</strong> Predizer diagnósticos de hipotireoidismo utilizando dados clínicos.<br><br>
+                <strong>Solução:</strong> Pipeline completo de ML: limpeza, análise exploratória (EDA), engenharia de atributos e treinamento de modelos de classificação binária (Regressão Logística e Árvores).<br><br>
+                <strong>Resultado:</strong> Avaliação de performance robusta, demonstrando capacidade de aplicar Machine Learning na área da saúde.</p>
+                <a href="https://github.com/Axllogan" target="_blank" class="link-github">Ver no GitHub &rarr;</a>
+            </div>
+
+            <!-- Projeto 4 -->
+            <div class="projeto-card">
+                <h3>Sistema de Recomendação & Supermercado</h3>
+                <div class="tags"><span>Python</span><span>Streamlit</span><span>EDA</span></div>
+                <p><strong>Desafio:</strong> Criar um motor de recomendação estilo Netflix e extrair insights de vendas de um supermercado.<br><br>
+                <strong>Solução:</strong> Para recomendação, utilizei filtragem colaborativa com deploy via Streamlit. Para o supermercado, apliquei estatística descritiva e manipulação de dados com Pandas.<br><br>
+                <strong>Resultado:</strong> Soluções interativas e relatórios visuais prontos para apoiar a tomada de decisão.</p>
+                <a href="https://github.com/Axllogan" target="_blank" class="link-github">Ver no GitHub &rarr;</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <footer id="contato">
+        <h2 style="border: none; margin-bottom: 1rem;">Vamos conversar?</h2>
+        <div class="social-links">
+            <a href="https://github.com/Axllogan" target="_blank">GitHub</a>
+            <a href="LINK_DO_SEU_LINKEDIN_AQUI" target="_blank">LinkedIn</a>
+            <a href="mailto:SEU_EMAIL_AQUI">E-mail</a>
+        </div>
+        <p>&copy; 2024 Thiago Sampaio Ferreira Ramos. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
