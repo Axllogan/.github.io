@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiago Sampaio | Cientista de Dados</title>
+    <title>Thiago Sampaio | Analista de Dados</title>
     <style>
         /* Reset e Variáveis */
         * {
@@ -146,7 +146,7 @@
         /* Projetos */
         .projetos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
         .projeto-card {
@@ -181,14 +181,24 @@
         .projeto-card p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             flex-grow: 1;
+        }
+        .projeto-card .resultado {
+            background-color: #0f172a;
+            padding: 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent-color);
         }
         .link-github {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9rem;
+            align-self: flex-start;
         }
         .link-github:hover {
             text-decoration: underline;
@@ -214,7 +224,7 @@
         /* Responsividade */
         @media (max-width: 768px) {
             header h1 { font-size: 2.5rem; }
-            nav ul { display: none; } /* Simplificação para mobile */
+            nav ul { display: none; }
             .sobre-content { flex-direction: column; }
         }
     </style>
@@ -236,7 +246,7 @@
     <header>
         <h2>Olá, eu sou</h2>
         <h1>Thiago Sampaio <span>Ferreira Ramos</span></h1>
-        <h2>Cientista de Dados em Transição de Carreira</h2>
+        <h2>Analista de Dados em Transição de Carreira</h2>
         <p>Transformando dados complexos em decisões estratégicas de negócio. Unindo a precisão estrutural da engenharia à empatia analítica do atendimento ao cliente.</p>
         <div>
             <a href="#projetos" class="btn">Ver Projetos</a>
@@ -250,7 +260,7 @@
         <div class="sobre-content">
             <div class="sobre-texto">
                 <p>Minha trajetória começou na engenharia, modelando projetos em 3D, onde aprendi que precisão e estrutura são fundamentais. A virada de chave veio ao atuar no atendimento ao cliente de uma grande empresa do setor de apostas, onde catalogar feedbacks e prevenir problemas me mostrou o poder dos dados para resolver dores reais.</p>
-                <p>Hoje, dedico-me integralmente à Ciência de Dados. Busco minha consolidação profissional aplicando modelos preditivos e análises que geram valor tangível aos negócios. Meu grande diferencial é unir o raciocínio lógico de engenheiro com a escuta ativa de quem já lidou com milhares de usuários, sempre com resiliência e adaptabilidade para enfrentar desafios.</p>
+                <p>Hoje, dedico-me integralmente à Análise de Dados. Busco minha consolidação profissional aplicando modelos preditivos e análises que geram valor tangível aos negócios. Meu grande diferencial é unir o raciocínio lógico de engenheiro com a escuta ativa de quem já lidou com milhares de usuários, sempre com resiliência e adaptabilidade para enfrentar desafios.</p>
             </div>
         </div>
     </section>
@@ -264,7 +274,7 @@
                 <p>Python (Pandas, Numpy, Scikit-learn), SQL (PostgreSQL - Básico)</p>
             </div>
             <div class="skill-card">
-                <h3>Machine Learning</h3>
+                <h3>Análise e Machine Learning</h3>
                 <p>Modelos de Classificação, Regressão, Clusterização (K-means), Sistemas de Recomendação, Métricas de Avaliação.</p>
             </div>
             <div class="skill-card">
@@ -283,44 +293,66 @@
         <h2>Projetos em Destaque</h2>
         <div class="projetos-grid">
             
-            <!-- Projeto 1 -->
+            <!-- Projeto 1: Hipotireoidismo (com link) -->
+            <div class="projeto-card">
+                <h3>Classificação de Hipotireoidismo (TCC)</h3>
+                <div class="tags"><span>Python</span><span>Scikit-learn</span><span>Saúde</span></div>
+                <p><strong>Desafio:</strong> Predizer diagnósticos de hipotireoidismo utilizando dados clínicos.</p>
+                <p><strong>Solução:</strong> Pipeline completo de ML: limpeza, análise exploratória (EDA), engenharia de atributos e treinamento de modelos de classificação binária (Regressão Logística e Árvores).</p>
+                <p><strong>Resultado:</strong> Avaliação de performance robusta, demonstrando capacidade de aplicar Machine Learning na área da saúde.</p>
+                <a href="https://github.com/Axllogan/classificacao-hipotireoidismo" target="_blank" class="link-github">Ver no GitHub &rarr;</a>
+            </div>
+
+            <!-- Projeto 2: Credit Score (sem link, com resultados) -->
             <div class="projeto-card">
                 <h3>Credit Score com Árvore de Decisão</h3>
                 <div class="tags"><span>Python</span><span>Scikit-learn</span><span>ML</span></div>
-                <p><strong>Desafio:</strong> Classificar o score de crédito de clientes (High, Average, Low).<br><br>
-                <strong>Solução:</strong> Apliquei Decision Tree (Critério Gini) e OrdinalEncoder para dados categóricos. Avaliei com Matriz de Confusão e classification_report.<br><br>
-                <strong>Resultado:</strong> Acurácia superior a 93% na base de teste, com diagnóstico de overfitting inicial a ser corrigido com poda (hiperparâmetros).</p>
-                <a href="https://github.com/Axllogan" target="_blank" class="link-github">Ver no GitHub &rarr;</a>
+                <p><strong>Desafio:</strong> Classificar o score de crédito de clientes (High, Average, Low) para mitigar riscos financeiros.</p>
+                <p><strong>Solução:</strong> Apliquei Decision Tree (Critério Gini) e OrdinalEncoder para variáveis categóricas, com balanceamento de classes e avaliação via Matriz de Confusão.</p>
+                <p><strong>Resultado:</strong> O modelo inicial apresentou 100% de acurácia no treino (overfitting). Na base de teste, manteve excelente performance (superior a 93%), com necessidade de poda (hiperparâmetros) para generalização.</p>
+                <!-- Sem link, pois o projeto não está público no GitHub -->
             </div>
 
-            <!-- Projeto 2 -->
+            <!-- Projeto 3: Abandono de Carrinho (sem link, com resultados) -->
             <div class="projeto-card">
-                <h3>Abandono de Carrinho (E-commerce)</h3>
+                <h3>Análise Preditiva de Abandono de Carrinho</h3>
                 <div class="tags"><span>Python</span><span>Classificação</span><span>Negócios</span></div>
-                <p><strong>Desafio:</strong> Identificar clientes com alta probabilidade de desistir da compra devido ao aumento de 127% no frete.<br><br>
-                <strong>Solução:</strong> Estudo de classificação binária (Desistentes vs Persistentes) focado na precisão da classe minoritária.<br><br>
-                <strong>Resultado:</strong> Modelo com 90% de acerto geral e 85% de precisão para "Desistentes", permitindo envio cirúrgico de cupons de desconto e aumento da fidelização.</p>
-                <a href="https://github.com/Axllogan" target="_blank" class="link-github">Ver no GitHub &rarr;</a>
+                <p><strong>Desafio:</strong> Identificar clientes com alta probabilidade de desistir da compra após um aumento de 127,27% no custo médio de frete.</p>
+                <p><strong>Solução:</strong> Estudo de classificação binária (Desistentes vs. Persistentes) focado na precisão da classe minoritária.</p>
+                <div class="resultado">
+                    <strong>Resultado:</strong> 90% de acerto geral (9 em 10 casos) e 85% de precisão para "Desistentes", permitindo envio cirúrgico de cupons de desconto e aumento da fidelização.
+                </div>
+                <!-- Sem link, pois o projeto não está público no GitHub -->
             </div>
 
-            <!-- Projeto 3 -->
+            <!-- Projeto 4: Supermercado (com link) -->
             <div class="projeto-card">
-                <h3>Classificação de Hipotireoidismo (TCC)</h3>
-                <div class="tags"><span>Python</span><span>Data Science</span><span>Saúde</span></div>
-                <p><strong>Desafio:</strong> Predizer diagnósticos de hipotireoidismo utilizando dados clínicos.<br><br>
-                <strong>Solução:</strong> Pipeline completo de ML: limpeza, análise exploratória (EDA), engenharia de atributos e treinamento de modelos de classificação binária (Regressão Logística e Árvores).<br><br>
-                <strong>Resultado:</strong> Avaliação de performance robusta, demonstrando capacidade de aplicar Machine Learning na área da saúde.</p>
-                <a href="https://github.com/Axllogan" target="_blank" class="link-github">Ver no GitHub &rarr;</a>
+                <h3>Análise Estatística de Supermercado</h3>
+                <div class="tags"><span>Python</span><span>Pandas</span><span>EDA</span></div>
+                <p><strong>Desafio:</strong> Extrair insights de vendas de um supermercado para apoiar a tomada de decisão.</p>
+                <p><strong>Solução:</strong> Manipulação de dados com Pandas, estatística descritiva, tratamento de dados ausentes e geração de relatórios visuais.</p>
+                <p><strong>Resultado:</strong> Relatórios visuais prontos para identificar padrões de consumo e orientar estratégias comerciais.</p>
+                <a href="https://github.com/Axllogan/exercicio_supermercado_estatisca" target="_blank" class="link-github">Ver no GitHub &rarr;</a>
             </div>
 
-            <!-- Projeto 4 -->
+            <!-- Projeto 5: Sistema de Recomendação (sem link direto, mas descrito) -->
             <div class="projeto-card">
-                <h3>Sistema de Recomendação & Supermercado</h3>
-                <div class="tags"><span>Python</span><span>Streamlit</span><span>EDA</span></div>
-                <p><strong>Desafio:</strong> Criar um motor de recomendação estilo Netflix e extrair insights de vendas de um supermercado.<br><br>
-                <strong>Solução:</strong> Para recomendação, utilizei filtragem colaborativa com deploy via Streamlit. Para o supermercado, apliquei estatística descritiva e manipulação de dados com Pandas.<br><br>
-                <strong>Resultado:</strong> Soluções interativas e relatórios visuais prontos para apoiar a tomada de decisão.</p>
-                <a href="https://github.com/Axllogan" target="_blank" class="link-github">Ver no GitHub &rarr;</a>
+                <h3>Sistema de Recomendação (Netflix-like)</h3>
+                <div class="tags"><span>Python</span><span>Streamlit</span><span>Filtragem Colaborativa</span></div>
+                <p><strong>Desafio:</strong> Criar um motor de recomendação de conteúdo baseado no comportamento do usuário.</p>
+                <p><strong>Solução:</strong> Apliquei filtragem colaborativa, engenharia de atributos e deploy da solução interativa via Streamlit.</p>
+                <p><strong>Resultado:</strong> Solução interativa capaz de sugerir conteúdos personalizados, disponível para demonstração.</p>
+                <!-- Sem link direto, pois o repositório não foi localizado publicamente -->
+            </div>
+
+            <!-- Projeto 6: Cartorioebac (com link) -->
+            <div class="projeto-card">
+                <h3>Cartório EBAC (Curso de TI)</h3>
+                <div class="tags"><span>Python</span><span>Lógica</span><span>Curso</span></div>
+                <p><strong>Desafio:</strong> Desenvolver um sistema de cartório como projeto do curso de TI da EBAC.</p>
+                <p><strong>Solução:</strong> Aplicação dos fundamentos de programação, estruturas de dados e lógica de negócio.</p>
+                <p><strong>Resultado:</strong> Projeto concluído com sucesso, demonstrando domínio da base de programação.</p>
+                <a href="https://github.com/Axllogan/Cartorioebac" target="_blank" class="link-github">Ver no GitHub &rarr;</a>
             </div>
 
         </div>
